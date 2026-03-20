@@ -1,0 +1,46 @@
+// background.js
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+
+  if (msg.action === "translate") {
+
+    const url =
+      "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=tr&dt=t&q=" +
+      encodeURIComponent(msg.text);
+
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        const text = data[0].map(x => x[0]).join("");
+        sendResponse({ tr: text });
+      })
+      .catch(() => sendResponse({ tr: "" }));
+
+    return true;
+  }
+
+  if (msg.action === "getRomaji") {
+
+    const url =
+      "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=rm&q=" +
+      encodeURIComponent(msg.text);
+
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+
+        let romaji = "";
+
+        if (data[0]) {
+          data[0].forEach(x => {
+            if (x[3]) romaji += x[3];
+          });
+        }
+
+        sendResponse({ romaji: romaji.trim() });
+      })
+      .catch(() => sendResponse({ romaji: "" }));
+
+    return true;
+  }
+
+});
