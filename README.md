@@ -23,6 +23,7 @@ konnichiwa
 
 Turkish:
 Merhaba
+<img width="1197" height="681" alt="image" src="https://github.com/user-attachments/assets/e4abbc7e-4d08-4f14-9126-cddb2d1896c0" />
 
 ## 🚀 Installation
 
