@@ -25,7 +25,7 @@ Turkish:
 Merhaba
 <img width="1207" height="680" alt="image" src="https://github.com/user-attachments/assets/bb53a5cf-8d23-4be7-bceb-f617daa996d0" />
 <img width="1197" height="681" alt="image" src="https://github.com/user-attachments/assets/e4abbc7e-4d08-4f14-9126-cddb2d1896c0" />
-<img width="446" height="349" alt="image" src="https://github.com/user-attachments/assets/9891c135-5dff-4691-998f-9a140d898ae4" />
+<img width="556" height="432" alt="image" src="https://github.com/user-attachments/assets/c9b62bbc-bf5b-4fda-bc8d-001abd26d30c" />
 
 ## 🚀 Installation
 
