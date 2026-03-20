@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Romaji + Türkçe Altyazı",
+  "version": "3.0",
+  "description": "YouTube Japonca altyazıları Romaji ve Türkçe olarak gösterir.",
+  "permissions": [
+    "activeTab", "scripting"
+  ],
+  "host_permissions": [
+    "https://translate.googleapis.com/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}

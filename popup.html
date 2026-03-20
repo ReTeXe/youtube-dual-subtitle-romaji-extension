@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; padding:10px; width:320px; }
+    label { display:block; margin-top:8px; }
+    input[type="text"]{ width:100%; padding:6px; }
+    button{ margin-top:10px; padding:6px 10px; }
+  </style>
+</head>
+<body>
+  <h3>YT Romaji & TR</h3>
+  <label><input id="enableRomaji" type="checkbox"> Romaji göster</label>
+  <label>Resmi Google API kullan (opsiyonel)</label>
+  <label><input id="useOfficial" type="checkbox"> Use official API</label>
+  <label>API Key (varsa)</label>
+  <input id="apiKey" type="text" placeholder="API key (optional)" />
+  <button id="saveBtn">Kaydet</button>
+  <div id="status" style="margin-top:8px;color:green"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
