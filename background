@@ -1,25 +1,25 @@
-// background.js
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-
   if (msg.action === "translate") {
+    const targetLang = msg.targetLang || "en";
 
     const url =
-      "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=tr&dt=t&q=" +
+      "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=" +
+      targetLang +
+      "&dt=t&q=" +
       encodeURIComponent(msg.text);
 
     fetch(url)
       .then(r => r.json())
       .then(data => {
         const text = data[0].map(x => x[0]).join("");
-        sendResponse({ tr: text });
+        sendResponse({ text });
       })
-      .catch(() => sendResponse({ tr: "" }));
+      .catch(() => sendResponse({ text: "" }));
 
     return true;
   }
 
   if (msg.action === "getRomaji") {
-
     const url =
       "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=en&dt=rm&q=" +
       encodeURIComponent(msg.text);
@@ -27,20 +27,16 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     fetch(url)
       .then(r => r.json())
       .then(data => {
-
         let romaji = "";
-
         if (data[0]) {
           data[0].forEach(x => {
             if (x[3]) romaji += x[3];
           });
         }
-
         sendResponse({ romaji: romaji.trim() });
       })
       .catch(() => sendResponse({ romaji: "" }));
 
     return true;
   }
-
 });
