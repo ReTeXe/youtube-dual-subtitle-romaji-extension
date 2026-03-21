@@ -52,7 +52,7 @@ Merhaba
 
 ## 📌 Roadmap
 
-- [ ] Multiple language support (EN, TR, ES...)
+- [ ] Multiple language support (EN, TR)
 - [ ] Toggle Romaji / Original subtitles
 - [ ] UI improvements
 - [ ] Chrome Web Store release
